@@ -1,2 +1,2 @@
-# CodeInterview
-刷题
+# AlgorithmCode
+算法题
