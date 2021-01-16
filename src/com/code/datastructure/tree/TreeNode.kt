@@ -2,6 +2,10 @@ package com.code.datastructure.tree
 
 import com.code.algorithm.sort.important.getLeftChild
 
+/**
+ * 满二叉树：满足N = 2^(k) - 1
+ * 完全二叉树：只有最底下一层的右边没填满
+ */
 data class TreeNode(
     val value: Int,
     var left: TreeNode? = null,

@@ -54,9 +54,9 @@ fun main() {
         }
     }.asSequence()
         .forEach { triple ->
-            val (traversalFunc, treeNode, regex) = triple
+            val (traversalFunc, root, regex) = triple
             val list = emptyList<Int>().toMutableList()
-            traversalFunc.invoke(list, treeNode)
+            traversalFunc.invoke(list, root)
             val toString = traversalFunc.toString()
             "${toString.let { regex.findAll(it).asSequence().last().groupValues.last() }}...$list".let(::println)
         }
