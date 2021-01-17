@@ -7,7 +7,7 @@ fun preorderDfs(list: MutableList<Int>, node: TreeNode?) {
     if (node == null) {
         return
     }
-    list.add(node.value)
+    list += node.value
     preorderDfs(list, node.left)
     preorderDfs(list, node.right)
 }
@@ -20,7 +20,7 @@ fun inorderDfs(list: MutableList<Int>, node: TreeNode?) {
         return
     }
     inorderDfs(list, node.left)
-    list.add(node.value)
+    list += node.value
     inorderDfs(list, node.right)
 }
 
@@ -33,7 +33,7 @@ fun postorderDfs(list: MutableList<Int>, node: TreeNode?) {
     }
     postorderDfs(list, node.left)
     postorderDfs(list, node.right)
-    list.add(node.value)
+    list += node.value
 }
 
 fun main() {

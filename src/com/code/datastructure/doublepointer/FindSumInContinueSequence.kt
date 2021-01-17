@@ -17,7 +17,7 @@ fun findSumInContinueSequence(target: Int): Array<IntArray> {
                 for (i in p1..p2) {
                     array[i - p1] = i// 这里通过i - p1获取arry的index
                 }
-                result.add(array)
+                result += array
                 p2++
             }
             value < target -> p2++
