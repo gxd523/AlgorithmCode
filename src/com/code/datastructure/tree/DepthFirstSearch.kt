@@ -3,44 +3,44 @@ package com.code.datastructure.tree
 /**
  * 前序遍历：根、左、右
  */
-fun preorderTraversal(list: MutableList<Int>, node: TreeNode?) {
+fun preorderDfs(list: MutableList<Int>, node: TreeNode?) {
     if (node == null) {
         return
     }
     list.add(node.value)
-    preorderTraversal(list, node.left)
-    preorderTraversal(list, node.right)
+    preorderDfs(list, node.left)
+    preorderDfs(list, node.right)
 }
 
 /**
  * 中序遍历：左、根、右
  */
-fun inorderTraversal(list: MutableList<Int>, node: TreeNode?) {
+fun inorderDfs(list: MutableList<Int>, node: TreeNode?) {
     if (node == null) {
         return
     }
-    inorderTraversal(list, node.left)
+    inorderDfs(list, node.left)
     list.add(node.value)
-    inorderTraversal(list, node.right)
+    inorderDfs(list, node.right)
 }
 
 /**
  * 后序遍历：左、右、根
  */
-fun postorderTraversal(list: MutableList<Int>, node: TreeNode?) {
+fun postorderDfs(list: MutableList<Int>, node: TreeNode?) {
     if (node == null) {
         return
     }
-    postorderTraversal(list, node.left)
-    postorderTraversal(list, node.right)
+    postorderDfs(list, node.left)
+    postorderDfs(list, node.right)
     list.add(node.value)
 }
 
 fun main() {
     listOf(
-        ::preorderTraversal,
-        ::inorderTraversal,
-        ::postorderTraversal,
+        ::preorderDfs,
+        ::inorderDfs,
+        ::postorderDfs,
     ).let { list ->
         list.map {
             Triple(
