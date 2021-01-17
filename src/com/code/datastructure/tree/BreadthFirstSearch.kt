@@ -28,7 +28,7 @@ fun recurseBfs(list: MutableList<MutableList<Int>>, currentLayerNodeQueue: Queue
 }
 
 /**
- * 剑指题：32
+ * 剑指题：32.2
  * 从上到下按层打印二叉树，同一层的节点按从左到右的顺序打印，每一层打印到一行
  * 递归过程中，函数参数都有当前在第几层，这样每个节点都能根据自己所在层数找到list对应的层子集合
  */
