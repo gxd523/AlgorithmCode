@@ -49,25 +49,18 @@ fun recurseBfsBetter(list: MutableList<MutableList<Int>>, layer: Int, root: Tree
  */
 fun iterateBfs(root: TreeNode): List<List<Int>> {
     val list = emptyList<MutableList<Int>>().toMutableList()
-    list += emptyList<Int>().toMutableList()
 
     val queue = LinkedList<TreeNode>()
     queue += root
 
-    var layerCount = 1
-    var count = 0
-
     while (queue.isNotEmpty()) {
-        if (count < layerCount) {
+        list += emptyList<Int>().toMutableList()
+
+        repeat(queue.size) {
             val node = queue.poll()
-            count++
             list.last() += node.value
             node.left?.let(queue::add)
             node.right?.let(queue::add)
-        } else if (count == layerCount) {
-            layerCount = queue.size
-            count = 0
-            list += emptyList<Int>().toMutableList()
         }
     }
     return list
