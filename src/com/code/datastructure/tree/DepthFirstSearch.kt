@@ -45,7 +45,7 @@ fun main() {
         list.map {
             Triple(
                 it,
-                createTree(intArrayOf(0, 1, 2, 3, 4, 5, 6)),
+                deserialize(arrayOf(0, 1, 2, 3, 4, 5, 6)),
                 Regex("""fun ([a-zA-Z]+)\(""")
             )
         }

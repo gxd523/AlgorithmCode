@@ -67,10 +67,12 @@ fun iterateBfs(root: TreeNode): List<List<Int>> {
 }
 
 fun main() {
+    val array: Array<Int?> = arrayOf(0, 1, 2, 3, 4, 5, 6)
+
     emptyList<MutableList<Int>>()
         .toMutableList()
         .also { list ->
-            val root = createTree(intArrayOf(0, 1, 2, 3, 4, 5, 6))
+            val root = deserialize(array)
             recurseBfsBetter(list, 0, root)
         }
         .let(::println)
@@ -78,10 +80,10 @@ fun main() {
     emptyList<MutableList<Int>>()
         .toMutableList()
         .also { list ->
-            val root = createTree(intArrayOf(0, 1, 2, 3, 4, 5, 6))
-            recurseBfs(list, LinkedList<TreeNode>().apply { add(root) })
+            val root = deserialize(array)
+            recurseBfs(list, LinkedList<TreeNode>().apply { add(root!!) })
         }
         .let(::println)
 
-    createTree(intArrayOf(0, 1, 2, 3, 4, 5, 6)).let(::iterateBfs).let(::println)
+    deserialize(array)!!.let(::iterateBfs).let(::println)
 }
