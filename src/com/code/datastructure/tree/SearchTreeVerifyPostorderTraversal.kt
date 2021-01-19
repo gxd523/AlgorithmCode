@@ -3,7 +3,7 @@ package com.code.datastructure.tree
 /**
  * 剑指题：33
  * 输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历结果。
- * 二叉搜索树：左子树的所有节点<根节点，右子树所有节点>根节点，左右子树也满足以上条件
+ * 二叉搜索树：左子树的所有节点<根节点，右子树所有节点>根节点，左右子树也满足以上条件，任意两个节点的值都不同
  */
 fun verifyPostorder(postorder: IntArray): Boolean {
     return recurseSearchTree(postorder, 0, postorder.size - 1)
