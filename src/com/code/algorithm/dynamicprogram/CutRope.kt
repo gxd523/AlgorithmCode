@@ -11,12 +11,11 @@ import kotlin.math.max
  * 从i - j与dp[i - j]中选出大值，并遍历j直到i - 1，选出最大的就是dp[i]
  */
 fun cuttingRope(n: Int): Int {
-//    if (n == 2) return 1
-//    if (n == 3) return 2
+//    if (n < 4) return n - 1
 
     val dp = IntArray(n + 1)
     for (i in 2..n) {
-        for (j in 1 until n) {// j的范围可以优化到2 until n - 1，因为1作为乘数结果不变
+        for (j in 1 until i) {// j的范围可以优化到2 until n - 1，因为1作为乘数结果不变
             dp[i] = max(dp[i], j * max(i - j, dp[i - j]))
         }
     }
@@ -35,8 +34,7 @@ fun cuttingRope(n: Int): Int {
  * 得出局部最后解：优先分成3米长，其次分成2米长，再相乘
  */
 fun cuttingRope1(n: Int): Int {
-    if (n == 2) return 1
-    if (n == 3) return 2
+    if (n < 4) return n - 1
 
     val threeCount = n / 3
 
@@ -49,4 +47,33 @@ fun cuttingRope1(n: Int): Int {
 
 private fun Int.pow(b: Int): Int {
     return Math.pow(this.toDouble(), b.toDouble()).toInt()
+}
+
+/**
+ * 剑指题：14.1
+ * 长度为n的绳子，分为k段，每段长度相乘的结果最大值，附加条件：答案需要取模 1e9+7(1000000007)
+ * 貌似只能用贪心思想，不能用动态规划了
+ */
+fun cuttingRope2(n: Int): Int {
+    if (n < 4) return n - 1
+
+    val threeCount = n / 3
+
+    val result = when (n % 3) {
+        1 -> 3.pow1(threeCount - 1) * 4
+        2 -> 3.pow1(threeCount) * 2
+        else -> 3.pow1(threeCount)
+    }
+
+    return (result % 1000000007).toInt()
+}
+
+fun Int.pow1(count: Int): Long {
+    var c = count
+    var result = 1L
+    while (c > 0) {
+        result = result * 3 % 1000000007
+        c--
+    }
+    return result
 }
