@@ -1,6 +1,7 @@
 package com.code.algorithm.sort.important
 
 import com.code.algorithm.sort.simple.swap
+import kotlin.random.Random
 
 /**
  * 快速排序
@@ -28,7 +29,7 @@ fun quickSort(array: IntArray, l: Int, r: Int) {
  * 5、之后pivot左右的子数组，分别重复上面的步骤，直到子数组长度为1
  */
 fun partition(array: IntArray, l: Int, r: Int): Int {
-//    optimizePivot(array, l, r)
+    optimizePivot(array, l, r)
     var left = l
     var right = r
     val pivot = array[left]// 先将pivot保存，空出第一个坑位
@@ -82,19 +83,8 @@ fun partitionSwap(array: IntArray, l: Int, r: Int): Int {
 }
 
 fun optimizePivot(array: IntArray, l: Int, r: Int) {
-    val mid = (l + r) / 2
-
-    if (array[l] > array[r]) {
-        swap(array, l, r)
-    }
-
-    if (array[mid] > array[r]) {
-        swap(array, mid, r)
-    }
-
-    if (array[l] < array[mid]) {
-        swap(array, l, mid)
-    }
+    val pivotIndex = Random.nextInt(l, r)
+    swap(array, l, pivotIndex)
 }
 
 fun main() {
