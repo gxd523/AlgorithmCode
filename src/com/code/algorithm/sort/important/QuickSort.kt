@@ -10,15 +10,7 @@ import kotlin.random.Random
  * 控件复杂度：O(1)
  */
 fun quick(array: IntArray) {
-    quickSort(array, 0, array.size - 1)
-}
-
-fun quickSort(array: IntArray, l: Int, r: Int) {
-    if (l < r) {
-        val middle = partition(array, l, r)
-        quickSort(array, l, middle - 1)
-        quickSort(array, middle + 1, r)
-    }
+    partition(array, 0, array.size - 1)
 }
 
 /**
@@ -28,7 +20,9 @@ fun quickSort(array: IntArray, l: Int, r: Int) {
  * 4、如此往复，直到左右指针相遇，相遇位置填入pivot
  * 5、之后pivot左右的子数组，分别重复上面的步骤，直到子数组长度为1
  */
-fun partition(array: IntArray, l: Int, r: Int): Int {
+fun partition(array: IntArray, l: Int, r: Int) {
+    if (l >= r) return
+
     optimizePivot(array, l, r)
     var left = l
     var right = r
@@ -52,7 +46,9 @@ fun partition(array: IntArray, l: Int, r: Int): Int {
         }
     }
     array[left] = pivot
-    return left
+
+    partition(array, l, left - 1)
+    partition(array, left + 1, r)
 }
 
 /**

@@ -2,38 +2,33 @@ package com.code.algorithm.sort
 
 /**
  * 归并排序
+ * 分治思想
  */
 fun merge(array: IntArray) {
-    splitArray(array, 0, array.size)
+    mergeSort(array, 0, array.size - 1)
 }
 
-fun splitArray(array: IntArray, l: Int, r: Int) {// 前闭后开
-    if (l + 1 == r) {// 前闭后闭则为l==r，也就是只剩一个元素
-        return
-    }
+fun mergeSort(array: IntArray, left: Int, right: Int) {// 前闭后闭
+    if (left >= right) return
 
-    val mid = (l + r) / 2
-    splitArray(array, l, mid)// 注意：前闭后闭时不要写成mid - 1，否则l=1，r=2时，mid - 1 = 0，l<mid，就不好处理了
-    splitArray(array, mid, r)// 前闭后闭则为mid+1
+    val mid = (left + right) / 2
+    mergeSort(array, left, mid)
+    mergeSort(array, mid + 1, right)
 
-    mergeArray(array, l, mid, r)// 前闭后闭则为mid+1
-}
+    var l = left
+    var r = mid + 1
 
-fun mergeArray(array: IntArray, l: Int, m: Int, r: Int) {
-    val temp = IntArray(r - l)// 前闭后闭则为r-l+1
-    var left = l
-    var right = m// 前闭后闭则为m+1
-    var n = 0
-    while (left < m || right < r) {// 前闭后闭则为left <= m || right <= r
+    val temp = IntArray(right - left + 1)
+    var index = 0
+    while (l <= mid || r <= right) {
         when {
-            left == m -> temp[n++] = array[right++]
-            right == r -> temp[n++] = array[left++]
-            array[left] > array[right] -> temp[n++] = array[right++]
-            else -> temp[n++] = array[left++]
+            l > mid -> temp[index++] = array[r++]
+            r > right -> temp[index++] = array[l++]
+            array[l] < array[r] -> temp[index++] = array[l++]
+            else -> temp[index++] = array[r++]
         }
     }
-
-    System.arraycopy(temp, 0, array, l, temp.size)
+    System.arraycopy(temp, 0, array, left, temp.size)
 }
 
 fun main() {
