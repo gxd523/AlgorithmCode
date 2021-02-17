@@ -9,6 +9,17 @@
 * 指数阶：`O(2ⁿ)`
 
 ## 排序
+### 几种排序对比
+类型 | 最小时间复杂度 | 最大时间复杂度 | 空间复杂度 | 稳定性
+---: | --- | --- | --- | ---: 
+冒泡排序 | O(N²) | O(N²) | O(1) | 稳定
+选择排序 | O(N²) | O(N²) | O(1) | 不稳定
+插入排序 | O(N) | O(N²) | O(1) | 稳定
+希尔排序 | <O(N²) | O(N²) | O(1) | 不稳定
+归并排序 | O(NlogN) | O(NlogN) | O(N)| 稳定
+快速排序 | O(NlogN) | O(N²) | O(NlogN) | 不稳定
+堆排序 | O(NlogN) | O(NlogN) | O(1) | 不稳定
+
 ### 冒泡排序
 ![](https://gitee.com/hysbtr/pic/raw/master/bubble_sort.gif)
 
@@ -33,17 +44,6 @@
 ![](https://gitee.com/hysbtr/pic/raw/master/countSort.gif)
 
 ### 桶排序(Bucket Sort)
-
-### 几种排序对比
-类型 | 最小时间复杂度 | 最大时间复杂度 | 空间复杂度 | 稳定性
----: | --- | --- | --- | ---: 
-冒泡排序 | O(N²) | O(N²) | O(1) | 稳定
-选择排序 | O(N²) | O(N²) | O(1) | 不稳定
-插入排序 | O(N) | O(N²) | O(1) | 稳定
-希尔排序 | <O(N²) | O(N²) | O(1) | 不稳定
-归并排序 | O(NlogN) | O(NlogN) | O(N)| 稳定
-快速排序 | O(NlogN) | O(N²) | O(NlogN) | 不稳定
-堆排序 | O(NlogN) | O(NlogN) | O(1) | 不稳定
 
 ## 数据结构
 ### 数组
