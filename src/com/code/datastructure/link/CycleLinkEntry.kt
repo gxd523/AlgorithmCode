@@ -2,6 +2,9 @@ package com.code.datastructure.link
 
 /**
  * 剑指题：23
+ * 力扣：142
+ * 给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null
+ *
  * 双指针，fast比slow每次多走一步，如果链表有环，则一定能相遇
  * fast、slow第一次相遇时，fast走的步数时slow的2倍(f=2s)，fast比slow多走了n圈才能追上(f-s=n圈)
  * 所以得到结论：slow走n圈、fast走2n圈时，fast、slow第一次相遇

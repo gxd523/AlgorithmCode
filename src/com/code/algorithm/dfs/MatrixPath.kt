@@ -11,7 +11,7 @@ fun exist(board: Array<CharArray>, word: String): Boolean {
     val array = word.toCharArray()
     for (i in board.indices) {
         for (j in board[0].indices) {
-            if (matrixDfs(board, array, i, j, 0)) return true;
+            if (matrixDfs(board, array, i, j, 0)) return true
         }
     }
     return false

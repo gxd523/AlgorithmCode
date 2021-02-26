@@ -2,7 +2,7 @@ package com.code.datastructure.link
 
 /**
  * 剑指题：6
- * 从未到头打印单链表
+ * 从尾到头打印单链表
  */
 fun reversePrint(head: ListNode?): IntArray {
     val list = emptyList<Int>().toMutableList()

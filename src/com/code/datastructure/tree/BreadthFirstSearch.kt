@@ -53,15 +53,18 @@ fun iterateBfs(root: TreeNode): List<List<Int>> {
     val queue = LinkedList<TreeNode>()
     queue += root
 
-    while (queue.isNotEmpty()) {
-        list += emptyList<Int>().toMutableList()
+    while (queue.size > 0) {
+        var size = queue.size
+        val subList = emptyList<Int>().toMutableList()
 
-        repeat(queue.size) {
+        while (size > 0) {
             val node = queue.poll()
-            list.last() += node.value
+            subList.add(node.value)
             node.left?.let(queue::add)
             node.right?.let(queue::add)
+            size--
         }
+        list += subList
     }
     return list
 }
